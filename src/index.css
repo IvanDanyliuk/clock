@@ -2,7 +2,6 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  overflow: hidden;
 }
 body {
   background: linear-gradient(0deg, rgba(74,198,159,1) 0%, rgba(146,215,215,1) 100%);
@@ -28,7 +27,7 @@ a {
 }
 
 main {
-  height: 90vh;
+  min-height: 90vh;
   display: flex;
   justify-content: center;
   align-items: center;

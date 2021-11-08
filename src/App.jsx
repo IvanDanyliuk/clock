@@ -1,7 +1,7 @@
 import React from 'react';
 import {BrowserRouter, NavLink, Route, Routes} from "react-router-dom";
 import './index.css';
-import Clock from './components/Clock';
+import ClockContainer from './components/ClockContainer';
 import AnotherPage from './components/AnotherPage';
 
 
@@ -24,7 +24,7 @@ const App = () => {
         </header>
         <main>
           <Routes>
-            <Route path='/' element={<Clock />} />
+            <Route path='/' element={<ClockContainer />} />
             <Route path='/another' element={<AnotherPage />} />
           </Routes>
         </main>

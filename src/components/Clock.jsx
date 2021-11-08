@@ -5,10 +5,12 @@ const Clock = () => {
   const [time, setTime] = useState(new Date().toLocaleTimeString());
 
   useEffect(() => {
+    console.log('Clock started...')
     const currentTime = setInterval(() => {
       setTime(new Date().toLocaleTimeString());
     }, 1000);
     return () => {
+      console.log('Clock stopped')
       clearInterval(currentTime);
     };
   }, []);
