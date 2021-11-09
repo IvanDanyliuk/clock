@@ -3,20 +3,35 @@ import './styles/Clock.css';
 
 const Clock = () => {
   const [time, setTime] = useState(new Date().toLocaleTimeString());
+  const [isClockActive, setIsClockActive] = useState(true);
+
+  const startClock = () => {
+    setIsClockActive(true);
+  }
+  const stopClock = () => {
+    setIsClockActive(false);
+  }
 
   useEffect(() => {
-    console.log('Clock started...')
-    const currentTime = setInterval(() => {
-      setTime(new Date().toLocaleTimeString());
-    }, 1000);
+    let currentTime = null;
+    if(isClockActive) {
+      currentTime = setInterval(() => {
+        setTime(new Date().toLocaleTimeString());
+      }, 1000);
+    }
     return () => {
-      console.log('Clock stopped')
       clearInterval(currentTime);
-    };
-  }, []);
+    }
+  }, [isClockActive]);
 
   return (
-    <div className='clock'>{time}</div>
+    <div className='clock'>
+      <div>{time}</div>
+      <div className='buttonGroup'>
+        <button className='clockBtn' onClick={startClock}>Start</button>
+        <button className='clockBtn' onClick={stopClock}>Stop</button>
+      </div>
+    </div>
   );
 };
 
